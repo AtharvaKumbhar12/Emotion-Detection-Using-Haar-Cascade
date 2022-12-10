@@ -1,3 +1,4 @@
+import streamlit as st
 from keras.models import load_model
 from time import sleep
 import tensorflow
@@ -6,6 +7,8 @@ from keras.preprocessing import image
 import cv2
 import numpy as np
 
+
+st.title('Emotion Detection')
 face_classifier = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 classifier =load_model('model.h5')
 emotion_labels = ['Angry','Disgust','Fear','Happy','Neutral', 'Sad', 'Surprise']
