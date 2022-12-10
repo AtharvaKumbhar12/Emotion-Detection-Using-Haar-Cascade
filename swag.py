@@ -14,6 +14,7 @@ classifier =load_model('model.h5')
 emotion_labels = ['Angry','Disgust','Fear','Happy','Neutral', 'Sad', 'Surprise']
 
 cap = cv2.VideoCapture(0)
+frameST = st.empty()
 
 
 n = 0
@@ -21,6 +22,12 @@ n = 0
 while True:
     if n%30 == 0:
         _, frame = cap.read()
+        if not _:
+            print("Done processing !!!")
+            cv2.waitKey(3000)
+            # Release device
+            cap.release()
+            break
         labels = []
         gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
         faces = face_classifier.detectMultiScale(gray)
@@ -41,11 +48,16 @@ while True:
                 label=emotion_labels[prediction.argmax()]
                 label_position = (x,y)
                 cv2.putText(frame,label,label_position,cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)
+                #frameST.image(frame)
             else:
                 cv2.putText(frame,'No Faces',(30,80),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)
-        cv2.imshow('Emotion Detector',frame)
+                #frameST.image(frame)
+        #cv2.imshow('Emotion Detector',frame)
+        frameST.image(frame, channels="BGR")
+        
         if cv2.waitKey(1) & 0xFF == ord('q'):
-            break
+            cap.release()
+            #break
     else:
         continue
 cap.release()
