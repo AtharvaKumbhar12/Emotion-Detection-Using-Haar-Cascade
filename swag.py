@@ -55,9 +55,9 @@ while True:
         #cv2.imshow('Emotion Detector',frame)
         frameST.image(frame, channels="BGR")
         
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            cap.release()
-            #break
+        # if cv2.waitKey(1) & 0xFF == ord('q'):
+        #     cap.release()
+        #     #break
     else:
         continue
 cap.release()
