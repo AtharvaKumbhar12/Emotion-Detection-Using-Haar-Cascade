@@ -13,7 +13,7 @@ face_classifier = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 classifier =load_model('model.h5')
 emotion_labels = ['Angry','Disgust','Fear','Happy','Neutral', 'Sad', 'Surprise']
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('test2.mp4')
 frameST = st.empty()
 
 
