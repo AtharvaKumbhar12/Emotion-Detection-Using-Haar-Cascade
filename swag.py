@@ -23,8 +23,9 @@ while True:
     if n%30 == 0:
         _, frame = cap.read()
         if not _:
-            print("Done processing !!!")
-            cv2.waitKey(3000)
+            # print("Done processing !!!")
+            st.text("Done Processing")
+            #cv2.waitKey(3000)
             # Release device
             cap.release()
             break
