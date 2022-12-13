@@ -26,7 +26,7 @@ while True:
         _, frame = cap.read()
         if not _:
             # print("Done processing !!!")
-            # st.text("Done Processing")
+            st.text("Done Processing")
             # st.text('Angry was ', (emotionlist.count(0)/len(emotionlist)*100))
             # st.text('Disgust was ', (emotionlist.count(1)/len(emotionlist)*100))
             # st.text('Fear was ', (emotionlist.count(2)/len(emotionlist)*100))
