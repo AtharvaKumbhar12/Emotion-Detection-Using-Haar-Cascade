@@ -26,21 +26,14 @@ while True:
         _, frame = cap.read()
         if not _:
             # print("Done processing !!!")
-            st.text("Done Processing")
-            if (emotionlist.count(0) > 0):
-                st.text('Angry was ', (emotionlist.count(0)/len(emotionlist)*100))
-            if (emotionlist.count(1) > 0):
-                st.text('Disgust was ', (emotionlist.count(1)/len(emotionlist)*100))
-            if (emotionlist.count(2) > 0):
-                st.text('Fear was ', (emotionlist.count(2)/len(emotionlist)*100))
-            if (emotionlist.count(3) > 0):
-                st.text('Happy was ', (emotionlist.count(3)/len(emotionlist)*100))
-            if (emotionlist.count(4) > 0):
-                st.text('Neutral was ', (emotionlist.count(4)/len(emotionlist)*100))
-            if (emotionlist.count(5) > 0):
-                st.text('Sad was ', (emotionlist.count(5)/len(emotionlist)*100))
-            if (emotionlist.count(6) > 0):
-                st.text('Surprise was ', (emotionlist.count(6)/len(emotionlist)*100))
+            # st.text("Done Processing")
+            # st.text('Angry was ', (emotionlist.count(0)/len(emotionlist)*100))
+            # st.text('Disgust was ', (emotionlist.count(1)/len(emotionlist)*100))
+            # st.text('Fear was ', (emotionlist.count(2)/len(emotionlist)*100))
+            # st.text('Happy was ', (emotionlist.count(3)/len(emotionlist)*100))
+            # st.text('Neutral was ', (emotionlist.count(4)/len(emotionlist)*100))
+            # st.text('Sad was ', (emotionlist.count(5)/len(emotionlist)*100))
+            # st.text('Surprise was ', (emotionlist.count(6)/len(emotionlist)*100))
             #cv2.waitKey(3000)
             # Release device
             cap.release()
