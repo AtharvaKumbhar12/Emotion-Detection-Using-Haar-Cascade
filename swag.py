@@ -8,6 +8,7 @@ import cv2
 import numpy as np
 
 
+
 st.title('Emotion Detection')
 face_classifier = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 classifier =load_model('model.h5')
@@ -16,6 +17,7 @@ emotion_labels = ['Angry','Disgust','Fear','Happy','Neutral', 'Sad', 'Surprise']
 cap = cv2.VideoCapture('test2.mp4')
 frameST = st.empty()
 
+emotionlist = []
 
 n = 0
 
@@ -25,6 +27,20 @@ while True:
         if not _:
             # print("Done processing !!!")
             st.text("Done Processing")
+            if (emotionlist.count(0) > 0):
+                st.text('Angry was ', (emotionlist.count(0)/len(emotionlist)*100))
+            if (emotionlist.count(1) > 0):
+                st.text('Disgust was ', (emotionlist.count(1)/len(emotionlist)*100))
+            if (emotionlist.count(2) > 0):
+                st.text('Fear was ', (emotionlist.count(2)/len(emotionlist)*100))
+            if (emotionlist.count(3) > 0):
+                st.text('Happy was ', (emotionlist.count(3)/len(emotionlist)*100))
+            if (emotionlist.count(4) > 0):
+                st.text('Neutral was ', (emotionlist.count(4)/len(emotionlist)*100))
+            if (emotionlist.count(5) > 0):
+                st.text('Sad was ', (emotionlist.count(5)/len(emotionlist)*100))
+            if (emotionlist.count(6) > 0):
+                st.text('Surprise was ', (emotionlist.count(6)/len(emotionlist)*100))
             #cv2.waitKey(3000)
             # Release device
             cap.release()
@@ -46,6 +62,7 @@ while True:
                 roi = np.expand_dims(roi,axis=0)
 
                 prediction = classifier.predict(roi)[0]
+                emotionlist.append(prediction)
                 label=emotion_labels[prediction.argmax()]
                 label_position = (x,y)
                 cv2.putText(frame,label,label_position,cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)
@@ -56,6 +73,7 @@ while True:
         #cv2.imshow('Emotion Detector',frame)
         frameST.image(frame, channels="BGR")
         
+         
         # if cv2.waitKey(1) & 0xFF == ord('q'):
         #     cap.release()
         #     #break
